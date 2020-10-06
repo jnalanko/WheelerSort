@@ -26,7 +26,7 @@ Below is an example input:
 2 5 c
 ```
 
-This defines an automaton 6 nodes and 5 edges. The initial state is 0. The edges are (0,1,a), (0,2,b), (1,3,b), (2,4,a), (2,5,c). This input is in the file example_input.txt. To sort the nodes, run:
+This defines an automaton with 6 nodes and 5 edges. The initial state is 0. The edges are (0,1,a), (0,2,b), (1,3,b), (2,4,a), (2,5,c). This input is in the file example_input.txt. To sort the nodes, run:
 
 ```
 cat example_input.txt | ./wheelersort
