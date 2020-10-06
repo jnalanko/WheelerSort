@@ -168,14 +168,16 @@ vector<LL> get_depth_k_nodes_in_order(WDFA& wdfa, vector<LL>& ISA_new, vector<LL
     return ans;
 }
 
-vector<LL> brute_force_sort(WDFA& wdfa){
+vector<LL> brute_force_sort(WDFA& wdfa, LL maxdepth){
     vector<pair<vector<LL>,LL> > back_paths; // path, node
     for(LL v = 0; v < wdfa.n_nodes; v++){
         vector<LL> path;
         LL u = v;
-        while(wdfa.pred[u].size() > 0){
+        LL depth = 0;
+        while(depth <= maxdepth && wdfa.pred[u].size() > 0){
             path.push_back(wdfa.pred[u][0].label);
             u = wdfa.pred[u][0].dest;
+            depth++;
         }
         back_paths.push_back({path,v});
     }
@@ -188,10 +190,11 @@ vector<LL> brute_force_sort(WDFA& wdfa){
 }
 
 vector<LL> wheeler_sort(WDFA wdfa){
-    
+
     vector<LL> depths = get_depths(wdfa);
-    if(*max_element(depths.begin(), depths.end()) <= 3) // Recursion base case.
-        return brute_force_sort(wdfa);
+    LL brute_threshold = 3;
+    if(*max_element(depths.begin(), depths.end()) <= brute_threshold) // Recursion base case.
+        return brute_force_sort(wdfa, brute_threshold);
 
     vector<LL> n_nodes_at_depth(3);
     for(LL v = 0; v < wdfa.n_nodes; v++)
