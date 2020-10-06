@@ -1,6 +1,6 @@
 # Wheeler sorting a deterministic Wheeler automaton
 
-Linear-time sorting of deterministic Wheeler automata. Beta version. 
+Linear-time sorting of deterministic Wheeler automata. Beta version. Cyclic automata probably don't work correctly yet.
 
 ## Compiling
 
