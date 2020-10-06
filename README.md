@@ -10,7 +10,7 @@ Requires a compiler with support for c++17. There are no external dependencies. 
 
 Reads a deterministic Wheeler automaton from standard input and prints the Wheeler order of the nodes. The graph format is as follows: on the first line there are two space-separated integers: number of nodes n and number of edges m. The nodes of the automaton will be integers from 0 to n-1. On the next line there is one line which contains an integer that identifies the initial state of the automaton. Every state of the automaton must be reachable from the initial state. Then follows m lines, each defining one edge. An edge is defined with three space-separated values: source node, destination node, label. The edge label is a single ASCII character.
 
-Prints to standard out put n space-separated integers, where the i-th integer is the rank of node i in the Wheeler order.
+Prints to standard output n space-separated integers, where the i-th integer is the rank of node i in the Wheeler order.
 
 # Example
 
